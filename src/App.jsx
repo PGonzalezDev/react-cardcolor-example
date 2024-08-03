@@ -1,22 +1,21 @@
 //import { useState } from 'react'
+import CardColor from './card-color/CardColor.jsx'
+import data from './data.js'
 import './App.css'
 
-function App({colorList}) {
+
+
+function App() {
   //const [count, setCount] = useState(0)
-  const cardColors = []
-  
-  for (let i = 0; i < colorList.length; i++) {
-    const colors = colorList[i];
-    const divList = [];
+  const CardColorList = []
 
-    for (let j = 0; j < colors.length; j++) {
-      divList.push(<div>{colors[j]}</div>)
-    }
+  for (let i = 0; i < data.length; i++) {
+    const colors = data[i];
 
-    cardColors.push(<div className="card">{divList}</div>);
+    CardColorList.push(<div className="card" id={i}><CardColor colors={colors} /></div>)
   }
 
-  return cardColors
+  return CardColorList
 }
 
 export default App
